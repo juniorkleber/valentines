@@ -1,0 +1,220 @@
+/* ===========================
+Global Styles
+=========================== */
+body {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background: #ffcccc url('../img/bg2.webp') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    transition: background 1s ease;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+/* ===========================
+Countdown Section
+=========================== */
+.countdown {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.countdown h2 {
+    font-size: 22px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+#countdown-timer {
+    font-size: 20px;
+    padding-bottom: 10px; 
+    font-weight: bold;
+    color: #000000;
+}
+/* ===========================
+Closed Letter Section
+=========================== */
+.closed-letter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 150px;
+    background-color: rgb(197, 102, 102);
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+    text-align: center;
+}
+
+.closed-letter:hover {
+    transform: scale(1.05);
+}
+
+/* ===========================
+Hidden Content Section
+=========================== */
+.hidden-content {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: #ffcccc url('../img/bg6.webp') no-repeat center center;
+    background-size: cover;
+    width: 100vw; /
+    min-height: 100vh; 
+    padding-bottom: 30px; 
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hidden-content.show {
+    display: flex;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ===========================
+Title Section
+=========================== */
+.hidden-content-title h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #585858;
+    font-family: 'Dancing Script', cursive;
+    margin-bottom: 20px;
+}
+
+/* ===========================
+Player Section
+=========================== */
+.player audio {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* ===========================
+Carousel Section
+=========================== */
+.carousel {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-images {
+    display: inline-flex;
+    gap: 10px;
+}
+
+.carousel-images img {
+    width: 100%;
+    max-width: 200px;
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+/* ===========================
+Text Section
+=========================== */
+.loveCounter {
+        font-size: 20px;
+        font-weight: bold;
+        color: #ffffff;
+        background: linear-gradient(90deg, #d44882, #ff758c);
+        padding: 15px 20px;
+        border-radius: 4px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+/* ===========================
+Text Section
+=========================== */
+.declaration {
+    font-size: 18px;
+    font-style: italic;
+    color: #585858;
+    background: #f5c6cd;
+    padding: 15px 20px;
+    border-radius: 20px;
+    text-align: justify;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* ===========================
+Last Year Section
+=========================== */
+.lastYear {
+ text-align: center;
+}
+
+.lastYear h1 {
+    font-size: 48px; 
+    font-weight: bold;
+    color: #585858;
+    font-family: 'Dancing Script', cursive;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 0 20px; 
+}
+
+.lastYear img {
+    max-width: 300px; 
+    height: auto;
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+}
+
+/* ===========================
+Responsive Design
+=========================== */
+@media (max-width: 768px) {
+    .closed-letter {
+        width: 90%;
+        height: auto;
+        font-size: 16px;
+    }
+
+    img {
+        max-width: 90%;
+    }
+
+    .counter, .textinho {
+        font-size: 14px;
+    }
+
+    .hidden-content h1 {
+        font-size: 28px;
+    }
+
+    .lastYear h1 {
+        font-size: 28px; 
+    }
+}

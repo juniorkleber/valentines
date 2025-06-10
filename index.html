@@ -1,317 +1,85 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valentine's Day</title>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-    body {
-        font-family: 'Roboto', sans-serif;
-        text-align: center;
-        background: #ffcccc url('bg2.webp') no-repeat center center fixed;
-        background-size: cover;
-        margin: 0;
-        padding: 0;
-        transition: background 1s ease;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        overflow-y: auto;
-    }
-
-    .closed-letter {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 300px;
-        height: 150px;
-        background-color: rgb(197, 102, 102);
-        color: white;
-        font-size: 26px;
-        font-weight: bold;
-        border-radius: 10px;
-        cursor: pointer;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        transition: transform 0.2s ease;
-        text-align: center;
-    }
-
-    .closed-letter:hover {
-        transform: scale(1.05);
-    }
-
-    .countdown {
-        margin-top: 30px;
-        text-align: center;
-    }
-
-    .countdown h2 {
-        font-size: 22px;
-        color: #ffffff;
-        margin-bottom: 10px;
-    }
-
-    #countdown-timer {
-        font-size: 20px;
-        padding-bottom: 10px; 
-        font-weight: bold;
-        color: #000000;
-    }
-
-    .hidden-content {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        background: #ffcccc url('bg6.webp') no-repeat center center;
-        background-size: cover;
-        width: 100vw; /
-        min-height: 100vh; 
-        padding-bottom: 30px; 
-        opacity: 0;
-        transform: scale(0.9);
-        transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    .hidden-content.show {
-        display: flex;
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    .hidden-content h1 {
-        font-size: 48px;
-        font-weight: bold;
-        color: #585858;
-        font-family: 'Dancing Script', cursive;
-        margin-bottom: 20px;
-    }
-
-    audio {
-        width: 100%;
-        max-width: 400px;
-    }
-
-    .carousel {
-        position: relative;
-        width: 80%;
-        max-width: 600px;
-        margin: 20px auto;
-        overflow-x: scroll;
-        overflow-y: hidden;
-        white-space: nowrap;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .carousel-images {
-        display: inline-flex;
-        gap: 10px;
-    }
-
-    .carousel-images img {
-        width: 100%;
-        max-width: 200px;
-        flex-shrink: 0;
-        border-radius: 10px;
-    }
-
-    .carousel::-webkit-scrollbar {
-        display: none;
-    }
-
-    .counter {
-        font-size: 20px;
-        font-weight: bold;
-        color: #ffffff;
-        background: linear-gradient(90deg, #d44882, #ff758c);
-        padding: 15px 20px;
-        border-radius: 4px;
-        text-align: center;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .textinho {
-        font-size: 18px;
-        font-style: italic;
-        color: #585858;
-        background: #f5c6cd;
-        padding: 15px 20px;
-        border-radius: 20px;
-        text-align: justify;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        max-width: 80%;
-        margin: 0 auto;
-    }
-
-    @media (max-width: 768px) {
-        .closed-letter {
-            width: 90%;
-            height: auto;
-            font-size: 16px;
-        }
-
-        img {
-            max-width: 90%;
-        }
-
-        .counter, .textinho {
-            font-size: 14px;
-        }
-
-        .hidden-content h1 {
-            font-size: 28px;
-        }
-
-        .lastYear h1 {
-            font-size: 28px; 
-        }
-    }
-
-    .lastYear {
-        text-align: center; 
-    }
-
-    .lastYear h1 {
-        font-size: 48px; 
-        font-weight: bold;
-        color: #585858;
-        font-family: 'Dancing Script', cursive;
-        margin-bottom: 20px;
-        text-align: center;
-        padding: 0 20px; 
-    }
-
-    .lastYear img {
-        max-width: 300px; 
-        height: auto;
-        border-radius: 10px; 
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <!-- Fonte do Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
-<div class="countdown" id="countdown">
-<h2>Faltam:</h2>
-<div id="countdown-timer"></div>
-</div>
-
-<div class="closed-letter" id="closedLetter" onclick="openLetter()" aria-label="Abrir carta">
-    Abra somente as 22:00hrs 💌
-</div>
-
-<div class="hidden-content" id="hiddenContent">
-    <h1>Feliz Dia dos Namorados</h1>
-    <audio controls autoplay loop id="backgroundMusic">
-        <source src="sua-musica.mp3" type="audio/mpeg">
-    </audio>
-    <div class="carousel">
-        <div class="carousel-images">
-            <img src="love1.jpg" alt="Imagem 1">
-            <img src="love2.jpg" alt="Imagem 2">
-            <img src="love3.jpg" alt="Imagem 3">
-            <img src="love4.jpg" alt="Imagem 4">
-            <img src="love1.jpg" alt="Imagem 1">
-            <img src="love2.jpg" alt="Imagem 2">
-            <img src="love3.jpg" alt="Imagem 3">
-            <img src="love4.jpg" alt="Imagem 4">
-            <img src="love1.jpg" alt="Imagem 1">
-            <img src="love2.jpg" alt="Imagem 2">
-            <img src="love3.jpg" alt="Imagem 3">
-            <img src="love4.jpg" alt="Imagem 4">
+    <!-- Contador Regressivo -->
+    <section id="countdown-section">
+        <div class="countdown" id="countdown">
+            <h2>Faltam:</h2>
+            <div id="countdown-timer"></div>
         </div>
-    </div>
-    <div class="counter" id="counter"></div>
-    <div class="textinho">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ultrices, turpis in mattis ultrices, magna felis gravida lorem, ac volutpat eros ex vitae neque.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ultrices, turpis in mattis ultrices, magna felis gravida lorem, ac volutpat eros ex vitae neque.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ultrices, turpis in mattis ultrices, magna felis gravida lorem, ac volutpat eros ex vitae neque.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ultrices, turpis in mattis ultrices, magna felis gravida lorem, ac volutpat eros ex vitae neque.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ultrices, turpis in mattis ultrices, magna felis gravida lorem, ac volutpat eros ex vitae neque.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ultrices, turpis in mattis ultrices, magna felis gravida lorem, ac volutpat eros ex vitae neque.
-    </div>
-   
-    <div class="lastYear">
-        <h1>1 ano atrás estávamos aqui...</h1>
-        <img src="first-valentines.jpg" alt="Foto de 1 ano atrás">
-    </div>
+    </section>
 
-</div>
+    <!-- Botão para abrir a carta -->
+    <section id="closed-letter-section">
+        <div class="closed-letter" id="closedLetter" onclick="openLetter()" aria-label="Abrir carta">
+            Abra somente às 22:00hrs 💌
+        </div>
+    </section>
 
-<script>
-    document.getElementById('backgroundMusic').volume = 0.5;
+    <!-- Conteúdo da Carta -->
+    <section id="hidden-content-section" class="hidden-content">
+        <!-- Título -->
+        <div class="hidden-content-title">
+            <h1>Feliz Dia dos Namorados</h1>
+        </div>
 
-    const startDate = new Date("2023-03-26T00:00:00");
+        <!-- Player de Música -->
+    <audio controls autoplay loop id="backgroundMusic">
+        <source src="audio/music.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
 
-    function openLetter() {
-        const closedLetter = document.getElementById('closedLetter');
-        closedLetter.style.display = 'none';
+        <!-- Carrossel -->
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="img/love1.jpg" alt="Imagem 1">
+                <img src="img/love2.jpg" alt="Imagem 2">
+                <img src="img/love3.jpg" alt="Imagem 3">
+                <img src="img/love4.jpg" alt="Imagem 4">
+                <img src="img/love1.jpg" alt="Imagem 1">
+                <img src="img/love2.jpg" alt="Imagem 2">
+                <img src="img/love3.jpg" alt="Imagem 3">
+                <img src="img/love4.jpg" alt="Imagem 4">
+                <img src="img/love1.jpg" alt="Imagem 1">
+                <img src="img/love2.jpg" alt="Imagem 2">
+                <img src="img/love3.jpg" alt="Imagem 3">
+                <img src="img/love4.jpg" alt="Imagem 4">
+            </div>
+        </div>
+        
+         <!-- Contador do Amor -->
+        <div class="loveCounter" id="loveCounter"></div>
 
-        const hiddenContent = document.getElementById('hiddenContent');
-        hiddenContent.classList.add('show');
+        <!-- Texto Especial -->
+        <div class="declaration">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ultrices, turpis in mattis ultrices, magna
+            felis gravida lorem, ac volutpat eros ex vitae neque.
+        </div>
 
-        const countdown = document.getElementById('countdown');
-        countdown.style.display = 'none';
+        <!-- Seção "1 ano atrás" -->
+        <div class="lastYear">
+            <h1>1 ano atrás estávamos aqui...</h1>
+            <img src="img/first-valentines.jpg" alt="Foto de 1 ano atrás">
+        </div>
+    </section>
 
-        updateCounter();
-        setInterval(updateCounter, 1000);
-    }
-
-    function updateCounter() {
-        const now = new Date();
-        let years = now.getFullYear() - startDate.getFullYear();
-        let months = now.getMonth() - startDate.getMonth();
-        let days = now.getDate() - startDate.getDate();
-
-        if (days < 0) {
-            months -= 1;
-            days += new Date(now.getFullYear(), now.getMonth(), 0).getDate();
-        }
-
-        if (months < 0) {
-            years -= 1;
-            months += 12;
-        }
-
-        const hours = now.getHours() - startDate.getHours();
-        const minutes = now.getMinutes() - startDate.getMinutes();
-        const seconds = now.getSeconds() - startDate.getSeconds();
-
-        document.getElementById('counter').innerText =
-            `Te amando há ${years} anos, ${months} meses, ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos.`;
-    }
-
-    function startCountdown() {
-        const targetTime = new Date();
-        targetTime.setHours(22, 0, 0, 0); // Define o horário alvo para 22:00:00
-
-        function updateCountdown() {
-            const now = new Date();
-            let timeLeft = targetTime - now;
-
-            // Se já passou das 22h, ajusta o contador para o próximo dia
-            if (timeLeft < 0) {
-                targetTime.setDate(targetTime.getDate() + 1);
-                timeLeft = targetTime - now;
-            }
-
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown-timer").innerText =
-                `${hours} horas, ${minutes} minutos e ${seconds} segundos`;
-        }
-
-        updateCountdown(); // Atualiza imediatamente ao carregar a página
-        setInterval(updateCountdown, 1000); // Atualiza a cada segundo
-    }
-
-    // Inicia o contador assim que a página é carregada
-    startCountdown();
-</script>
+    <!-- Scripts JavaScript -->
+    <script src="js/countdown.js"></script>
+    <script src="js/updateCounter.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
