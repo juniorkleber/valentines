@@ -44,6 +44,24 @@
         transform: scale(1.05);
     }
 
+    .countdown {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .countdown h2 {
+        font-size: 22px;
+        color: #ffffff;
+        margin-bottom: 10px;
+    }
+
+    #countdown-timer {
+        font-size: 20px;
+        padding-bottom: 10px; 
+        font-weight: bold;
+        color: #000000;
+    }
+
     .hidden-content {
         display: none;
         flex-direction: column;
@@ -151,19 +169,24 @@
         .hidden-content h1 {
             font-size: 28px;
         }
+
+        .lastYear h1 {
+            font-size: 28px; 
+        }
     }
 
     .lastYear {
-        margin-top: 10px; 
         text-align: center; 
     }
 
     .lastYear h1 {
-        font-size: 48px;
+        font-size: 48px; 
         font-weight: bold;
         color: #585858;
         font-family: 'Dancing Script', cursive;
         margin-bottom: 20px;
+        text-align: center;
+        padding: 0 20px; 
     }
 
     .lastYear img {
@@ -175,6 +198,12 @@
 </style>
 </head>
 <body>
+
+<div class="countdown" id="countdown">
+<h2>Faltam:</h2>
+<div id="countdown-timer"></div>
+</div>
+
 <div class="closed-letter" id="closedLetter" onclick="openLetter()" aria-label="Abrir carta">
     Abra somente as 22:00hrs 💌
 </div>
@@ -206,7 +235,7 @@
     </div>
    
     <div class="lastYear">
-        <h1>1 ano atrás estávamos aqui</h1>
+        <h1>1 ano atrás estávamos aqui...</h1>
         <img src="first-valentines.jpg" alt="Foto de 1 ano atrás">
     </div>
 
@@ -223,6 +252,9 @@
 
         const hiddenContent = document.getElementById('hiddenContent');
         hiddenContent.classList.add('show');
+
+        const countdown = document.getElementById('countdown');
+        countdown.style.display = 'none';
 
         updateCounter();
         setInterval(updateCounter, 1000);
@@ -251,6 +283,35 @@
         document.getElementById('counter').innerText =
             `Te amando há ${years} anos, ${months} meses, ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos.`;
     }
+
+    function startCountdown() {
+        const targetTime = new Date();
+        targetTime.setHours(22, 0, 0, 0); // Define o horário alvo para 22:00:00
+
+        function updateCountdown() {
+            const now = new Date();
+            let timeLeft = targetTime - now;
+
+            // Se já passou das 22h, ajusta o contador para o próximo dia
+            if (timeLeft < 0) {
+                targetTime.setDate(targetTime.getDate() + 1);
+                timeLeft = targetTime - now;
+            }
+
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown-timer").innerText =
+                `${hours} horas, ${minutes} minutos e ${seconds} segundos`;
+        }
+
+        updateCountdown(); // Atualiza imediatamente ao carregar a página
+        setInterval(updateCountdown, 1000); // Atualiza a cada segundo
+    }
+
+    // Inicia o contador assim que a página é carregada
+    startCountdown();
 </script>
 </body>
 </html>
