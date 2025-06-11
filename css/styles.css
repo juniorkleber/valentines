@@ -217,6 +217,11 @@ Responsive Design
         font-size: 14px;
     }
 
+    .hidden-content {
+        background-size: contain;
+        background-attachment: scroll; 
+    }
+
     .hidden-content h1 {
         font-size: 28px;
     }
