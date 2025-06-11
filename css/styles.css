@@ -70,10 +70,10 @@ Hidden Content Section
     align-items: center;
     gap: 20px;
     background: #ffcccc url('../img/bg6.webp') no-repeat center center;
-    background-size: cover;
-    width: 100vw; /
-    min-height: 100vh; 
-    padding-bottom: 30px; 
+    background-size: cover; 
+    width: 100vw;
+    min-height: 100vh;
+    padding-bottom: 30px;
     opacity: 0;
     transform: scale(0.9);
     transition: opacity 0.5s ease, transform 0.5s ease;
