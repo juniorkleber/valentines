@@ -4,7 +4,7 @@ Global Styles
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    background: #ffcccc url('../img/bg2.webp') no-repeat center center fixed;
+    background: #ffcccc url('../img/bg2.webp');
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -20,23 +20,24 @@ body {
 /* ===========================
 Countdown Section
 =========================== */
-.countdown {
-    margin-top: 30px;
-    text-align: center;
-}
 
-.countdown h2 {
-    font-size: 22px;
-    color: #ffffff;
+.countdown {
+    text-align: center;
     margin-bottom: 10px;
 }
 
+.countdown h2 {
+    font-size: 16px;
+    color: #ffffff;
+    margin-top: 50px;
+}
+
 #countdown-timer {
-    font-size: 20px;
-    padding-bottom: 10px; 
+    font-size: 14px;
     font-weight: bold;
     color: #000000;
 }
+
 /* ===========================
 Closed Letter Section
 =========================== */
@@ -44,6 +45,7 @@ Closed Letter Section
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 300px;
     height: 150px;
     background-color: rgb(197, 102, 102);
@@ -55,6 +57,7 @@ Closed Letter Section
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease;
     text-align: center;
+    margin: 0 auto;
 }
 
 .closed-letter:hover {
@@ -70,8 +73,6 @@ Hidden Content Section
     align-items: center;
     gap: 20px;
     background: #ffcccc url('../img/bg6.webp');
-    width: 100%;
-    min-height: 100vh;
     padding-bottom: 30px;
     opacity: 0;
     transform: scale(0.9);
@@ -92,22 +93,23 @@ Title Section
     font-weight: bold;
     color: #585858;
     font-family: 'Dancing Script', cursive;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 /* ===========================
 Player Section
 =========================== */
 .carro-som {
-    max-width: 200px; 
-    height: auto; 
+    max-width: 200px;
+    height: auto;
     display: block;
-    margin: 0 auto; 
+    margin: 0 auto 5px auto;
 }
 
 .player audio {
     width: 100%;
     max-width: 400px;
+    margin-bottom: 10px;
 }
 
 /* ===========================
@@ -145,18 +147,18 @@ Carousel Section
 Text Section
 =========================== */
 .loveCounter {
-        font-size: 20px;
-        font-weight: bold;
-        color: #ffffff;
-        background: linear-gradient(90deg, #d44882, #ff758c);
-        padding: 15px 20px;
-        border-radius: 4px;
-        text-align: center;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-    }
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(90deg, #d44882, #ff758c);
+    padding: 15px 20px;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
 
 /* ===========================
 Text Section
@@ -178,24 +180,24 @@ Text Section
 Last Year Section
 =========================== */
 .lastYear {
- text-align: center;
+    text-align: center;
 }
 
 .lastYear h1 {
-    font-size: 48px; 
+    font-size: 48px;
     font-weight: bold;
     color: #585858;
     font-family: 'Dancing Script', cursive;
     margin-bottom: 20px;
     text-align: center;
-    padding: 0 20px; 
+    padding: 0 20px;
 }
 
 .lastYear img {
-    max-width: 300px; 
+    max-width: 300px;
     height: auto;
-    border-radius: 10px; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* ===========================
@@ -208,17 +210,9 @@ Responsive Design
         font-size: 16px;
     }
 
-    img {
-        max-width: 90%;
-    }
-
-    .counter, .textinho {
+    .counter,
+    .declaration {
         font-size: 14px;
-    }
-
-    .hidden-content {
-         width: 90%;
-        height: auto;
     }
 
     .hidden-content h1 {
@@ -226,6 +220,17 @@ Responsive Design
     }
 
     .lastYear h1 {
-        font-size: 28px; 
+        font-size: 28px;
     }
+
+    #closed-letter-section {
+        height: 100vh;
+        /* Garante que o contêiner ocupe toda a altura da tela */
+    }
+
+    .closed-letter {
+        width: 90%;
+        font-size: 16px;
+    }
+
 }
