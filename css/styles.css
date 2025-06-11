@@ -70,7 +70,8 @@ Hidden Content Section
     align-items: center;
     gap: 20px;
     background: #ffcccc url('../img/bg6.webp') no-repeat center center;
-    background-size: cover; 
+    background-size: cover;
+    background-position: center top; 
     width: 100vw;
     min-height: 100vh;
     padding-bottom: 30px;
@@ -218,8 +219,8 @@ Responsive Design
     }
 
     .hidden-content {
-        background-size: contain;
-        background-attachment: scroll; 
+        background-size: 150%;
+        background-position: center center;
     }
 
     .hidden-content h1 {
