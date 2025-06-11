@@ -99,6 +99,13 @@ Title Section
 /* ===========================
 Player Section
 =========================== */
+.carro-som {
+    max-width: 200px; 
+    height: auto; 
+    display: block;
+    margin: 0 auto; 
+}
+
 .player audio {
     width: 100%;
     max-width: 400px;
@@ -156,13 +163,13 @@ Text Section
 Text Section
 =========================== */
 .declaration {
-    font-size: 18px;
+    font-size: 20px;
     font-style: italic;
     color: #585858;
     background: #f5c6cd;
     padding: 15px 20px;
     border-radius: 20px;
-    text-align: justify;
+    text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     max-width: 80%;
     margin: 0 auto;
