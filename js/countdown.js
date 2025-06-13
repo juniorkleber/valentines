@@ -1,6 +1,6 @@
 function startCountdown() {
     const targetTime = new Date();
-    targetTime.setHours(22, 0, 0, 0);
+    targetTime.setHours(22, 30, 0, 0);
     function updateCountdown() {
         const now = new Date();
         let timeLeft = targetTime - now;
